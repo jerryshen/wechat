@@ -27,9 +27,9 @@ module Wechat
     ApiLoader.config(account)
   end
 
-  def self.api(account = :default)
+  def self.api(account = :default, type = nil)
     @wechat_apis ||= {}
-    @wechat_apis[account.to_sym] ||= ApiLoader.with(account: account)
+    @wechat_apis[account.to_sym] ||= ApiLoader.with(account: account, type: type)
   end
 
   def self.reload_config!
